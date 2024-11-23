@@ -1,0 +1,33 @@
+#header {
+    background-color: #1363df;
+    color: #fff;
+}
+
+#header .container {
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo {
+    margin-left: 0;
+}
+.header .header-icon {
+    margin-left: auto;
+}
+
+.header .header-menu {
+    margin-left: auto;
+}
+.header .header-menu a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1.5em 10px 1.5em 10px;
+}
+.header .header-menu a.active {
+    border-bottom: 4px #fff solid;
+}

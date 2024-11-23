@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/productList.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="loader-container" id="loader-container">
+            <div class="loader"></div>
+        </div>
+
+        <div id="products-container">
+
+            <div id="left-sidebar">
+                <div class="text-cat" id="category-detail">
+                    Clothing / Women's / <span>Outerwear</span>
+                </div>
+                <h3>Filters</h3>
+                <h4>Categories</h4>
+                <div id="categories">
+                </div>
+            </div>
+
+
+            <div id="main">
+
+                <div id="result-sort">
+                    <div id="total-result"></div>
+                    <div class="sort-select">
+                        <select name="filter" id="filter" onchange="sorted(this)">
+                            <option value="">Sort by Price</option>
+                            <option value="asc">Low to High</option>
+                            <option value="desc">High to Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="productsList"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+<script src="productsList.js"></script>
+
+</html>

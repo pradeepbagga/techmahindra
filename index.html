@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tech Mahindra - Assignment</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.svg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link href="./css/global.css" rel="stylesheet" />
+    <link href="./css/loader.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="root-container">
+
+        <!-- HEADER : BEGINS -->
+        <div id="header"></div>
+        <script>
+            function loadHeader(url) {
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function () {
+                    document.getElementById("header").innerHTML = this.responseText;
+                }
+                xhttp.open("GET", url);
+                xhttp.send();
+            }
+            loadHeader("header.html");
+        </script>
+        <!-- HEADER : ENDS -->
+
+
+        <!-- BANNER : BEGINS -->
+        <div id="banner"></div>
+        <script>
+            function loadBanner(url) {
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function () {
+                    document.getElementById("banner").innerHTML = this.responseText;
+                }
+                xhttp.open("GET", url);
+                xhttp.send();
+            }
+            loadBanner("banner.html");
+        </script>
+        <!-- BANNER : ENDS -->
+
+
+        <!-- PRODUCTS : BEGINS -->
+        <div id="products">
+        </div>
+        <script>
+            function loadProducts(url) {
+                const xhttp = new XMLHttpRequest();
+                xhttp.open("GET", url, false);
+                xhttp.send(null);
+                document.getElementById("products").innerHTML = xhttp.responseText;
+            }
+            loadProducts("productsList.html");
+        </script>
+        <!-- PRODUCTS : ENDS -->
+
+
+
+
+        <!-- FOOTER : BEGINS -->
+        <div id="footer"></div>
+        <script>
+            function loadFooter(url) {
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function () {
+                    document.getElementById("footer").innerHTML = this.responseText;
+                }
+                xhttp.open("GET", url);
+                xhttp.send();
+            }
+            loadFooter("footer.html");
+        </script>
+        <!-- FOOTER : ENDS -->
+
+
+    </div>
+
+
+    <script src="common.js"></script>
+    <script src="productsList.js"></script>
+</body>
+
+</html>
