@@ -31,3 +31,12 @@
 .header .header-menu a.active {
     border-bottom: 4px #fff solid;
 }
+
+@media screen and (max-width: 768px) {
+    .header .header-menu {
+        display: none;
+    }
+    .header .logo {
+        padding: 1em 0;
+    }
+}

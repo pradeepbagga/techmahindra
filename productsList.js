@@ -9,11 +9,9 @@ var totalProducts = 0;
 var productsLoaded = 0;
 
 function displayCategory(obj) {
-    // console.log('category - ', obj.slug);
     const node = document.createElement("div");
 
     const radio = document.createElement("input");
-    // radio.setAttribute("type", "radio");
     radio.type = "radio";
     radio.name = "category";
     radio.value = obj.slug;
@@ -32,11 +30,9 @@ function displayCategory(obj) {
 }
 
 function getCategories() {
-    // fetch('https://fakestoreapi.com/products/categories')
     fetch('https://dummyjson.com/products/categories')
         .then(res => res.json())
         .then((response) => {
-            // console.log('categories - ', response);
             response.map((element) => displayCategory(element));
             checkCategory = true;
         });
@@ -44,7 +40,6 @@ function getCategories() {
 getCategories();
 
 function productsDisplay(obj) {
-    // console.log('productsDisplay - ', obj);
     let product = document.createElement('div');
     product.classList = "product-box";
 
@@ -95,19 +90,9 @@ function getProducts() {
     let loader = document.getElementById("loader-container");
     loader.style.display = "block";
 
-    console.log('');
-    console.log('category - ', category);
-    console.log('limit - ', limit);
-    console.log('skip - ', skip);
-    console.log('sortBy - ', sortField);
-    console.log('order - ', sortOrder);
-    console.log('totalProducts - ', totalProducts);
-    console.log('productsLoaded - ', productsLoaded);
-
     let url = "";
     if (category) {
         url = `https://dummyjson.com/products/category/${category}?sortBy=${sortField}&order=${sortOrder}&limit=${limit}&skip=${skip}`;
-        // url = `https://dummyjson.com/products/category/tablets?sortBy=price&order=desc&limit=${limit}&skip=${skip}`;
     }
     else {
         url = `https://dummyjson.com/products?sortBy=${sortField}&order=${sortOrder}&limit=${limit}&&skip=${skip}`;
@@ -118,14 +103,9 @@ function getProducts() {
         .then((response) => {
             loader.style.display = "none";
             document.getElementById("total-result").innerHTML = `${response.total} Results`;
-            // document.getElementById("productsList").innerHTML = "";
             response.products.map((element) => productsDisplay(element));
-            console.log('fetch response - ', response);
-            console.log('fetch response length - ', response.products.length);
             totalProducts = response.total;
             productsLoaded = productsLoaded + response.products.length
-            console.log('totalProducts 2 - ', totalProducts);
-            console.log('productsLoaded 2 - ', productsLoaded);
             if (totalProducts === productsLoaded) {
                 document.getElementById("load-more").style.display = "none";
             }
@@ -138,10 +118,10 @@ function getProducts() {
 getProducts();
 
 function categorySelected(val) {
-    console.log('');
-    console.log('CATEGORY CHANGED VALUE - ', val.value);
-    console.log('CURRENT CATEGORY - ', category);
-    console.log('');
+
+    if(screen.width < 769) {
+        document.getElementById("categories-wrapper").style.display = "none";
+    }
 
     if (category !== val.value) {
         document.getElementById("productsList").innerHTML = "";
@@ -154,8 +134,6 @@ function categorySelected(val) {
 }
 
 function sorted(val) {
-    // console.log('sorted 1 - ', val);
-    // console.log('sorted 2 - ', val.value);
     document.getElementById("productsList").innerHTML = "";
     sortField = "price";
     sortOrder = val.value;
@@ -165,15 +143,32 @@ function sorted(val) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    /* ******************* LOAD MORE PRODUCTS  ******************* */
     const loadMoreBtn = document.getElementById("load-more");
 
     loadMoreBtn.addEventListener("click", function () {
-        // console.log('totalProducts - ', totalProducts);
-        // console.log('productsLoaded - ', productsLoaded);
         if (productsLoaded <= totalProducts) {
             skip = skip + limit;
             getProducts();
         }
     });
+
+    /* ******************* CATEGORIES / FILTERS : SHOW HIDE ******************* */
+
+    const filtersBtn = document.getElementById("filter-clickon");
+
+    filtersBtn.addEventListener("click", function () {
+        document.getElementById("categories-wrapper").style.display = "block";
+    });
+
+    const filtersClose = document.getElementById("filters-close");
+
+    filtersClose.addEventListener("click", function () {
+        document.getElementById("categories-wrapper").style.display = "none";
+    });
+
+    /* *******************  ******************* */
+    /* *******************  ******************* */
 
 });
