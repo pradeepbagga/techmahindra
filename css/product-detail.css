@@ -1,0 +1,97 @@
+#product-detail-content {
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+#product-content .text-cat span {
+    opacity: 0.5;
+}
+
+#product-content #title {
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    color: #000;
+    font-weight: 600;
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+#product-content #descShort {
+    margin: 10px 0;
+}
+
+#product-content #quantity-wrapper {
+    border-top: 1px solid #616161;
+}
+
+#product-content #quantity-wrapper h3 {
+    margin: 10px 0;
+}
+
+
+#quantity-wrapper .quantity-increment {
+    display: flex;
+    align-items: center;
+}
+#quantity-wrapper .quantity-increment input {
+    border: 1px solid #868686;
+    padding: 7px;
+    border-radius: 7px;
+    outline: none;
+    max-width: 100px;
+    text-align: center;
+}
+#quantity-wrapper .quantity-increment span {
+    display: inline-block;
+    cursor: pointer;
+}
+
+#quantity-wrapper .btn-add-cart {
+    background-color: #1363df;
+    color: #fff;
+    border:0;
+    outline: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 7px;
+    text-transform: uppercase;
+    margin: 20px 0;
+    min-width: 200px;
+}
+
+#product-content .icons {
+    display: flex;
+    align-items: center;
+    max-width: 200px;
+    justify-content: center;
+}
+
+#product-content .icons div {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#product-content .icons img {
+    display: inline-block;
+    max-height: 20px;
+    margin-right: 5px;
+}
+
+
+#product-description {
+    margin-top: 1em;
+}
+
+#product-description h2 {
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    color: #000;
+    font-weight: 600;
+    font-size: 2em;
+    margin: 10px 0;
+}
+#product-description h3 {
+    margin-bottom: 0.75em;
+}
