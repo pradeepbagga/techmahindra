@@ -126,8 +126,6 @@ function minPriceChanged(val) {
 
 function maxPriceChanged(val) {
     maxPrice = val.value;
-    console.log('maxPriceChanged - ', val.value);
-    console.log('2  - ', maxPrice);
 
     document.getElementById("productsList").innerHTML = "";
     skip = 0;
@@ -149,9 +147,6 @@ function productsFilter(obj) {
         products = obj;
     }
 
-    console.log('minPrice 1 - ', minPrice);
-    console.log('maxPrice 1 - ', maxPrice);
-
     products = products.filter((element) => {
         if (element.price >= minPrice && element.price <= maxPrice) {
             return element;
@@ -165,7 +160,6 @@ function productsFilter(obj) {
         products = products.sort((a, b) => b.price - a.price);
     }
 
-    console.log('FINAL PRODUCTS - ', products);
     return products;
 }
 
@@ -174,41 +168,20 @@ function getProducts() {
     let loader = document.getElementById("loader-container");
     loader.style.display = "block";
 
-    // let url = "";
-    // if (category) {
-    //     url = `https://dummyjson.com/products/category/${category}?sortBy=${sortField}&order=${sortOrder}&limit=${limit}&skip=${skip}`;
-    // }
-    // else {
-    //     url = `https://dummyjson.com/products?sortBy=${sortField}&order=${sortOrder}&limit=${limit}&&skip=${skip}`;
-    // }
-
     fetch('./data.json')
         .then(res => res.json())
         .then((response) => {
-            console.log('response - ', response);
 
             document.getElementById("total-result").innerHTML = `${response.total} Results`;
 
             let filterdProducts = productsFilter(response.products);
-            console.log('filterdProducts - ', filterdProducts);
-            console.log('length - ', filterdProducts.length);
-
-            console.log('skip - ', skip);
-            console.log('limit - ', limit);
 
             filterdProducts.slice(skip, limit).map((element) => productsDisplay(element));
 
             loader.style.display = "none";
 
             totalProducts = filterdProducts.length;
-            // productsLoaded = productsLoaded + filterdProducts.length;
-
-            // if(productsLoaded === 0) {
             productsLoaded = limit;
-            // }
-
-            console.log('totalProducts - ', totalProducts);
-            console.log('productsLoaded - ', productsLoaded);
 
             if(totalProducts === 0) {
                 document.getElementById("no-product-found").style.display = "block";
@@ -246,7 +219,6 @@ function categorySelected(val) {
 }
 
 function sorted(val) {
-    console.log('sorted - ', val.value);
     document.getElementById("productsList").innerHTML = "";
     sortField = "price";
     if (val.value === "") {
