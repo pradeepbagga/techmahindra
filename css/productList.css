@@ -179,6 +179,28 @@
 }
 
 
+.price-range {
+    margin-bottom: 20px;
+}
+
+.price-range label {
+    display: block;
+    margin: 10px 0 3px 0;
+}
+.price-range input {
+    display: block;
+    padding: 4px;
+    width: 110px;
+}
+
+#no-product-found {
+    text-align: center;
+    font-weight: 500;
+    display: none;
+    color: red;
+}
+
+
 @media screen and (min-width: 1280px) {
     #productsList {
         grid-template-columns: repeat(2, 1fr);

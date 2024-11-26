@@ -40,6 +40,21 @@
                     <h3>Filters
                         <span id="filters-close">X</span>
                     </h3>
+
+                    <hr />
+                    <h4>Price Range</h4>
+                    <div class="price-range">
+                        <div>
+                            <label>Min</label>
+                            <input type="number" id="minPrice" value="0" min="0" onchange="minPriceChanged(this)" />
+                        </div>
+                        <div>
+                            <label>Max</label>
+                            <input type="number" id="maxPrice" value="1" min="1" onchange="maxPriceChanged(this)" />
+                        </div>
+                    </div>
+                    <hr />
+
                     <h4>Categories</h4>
                     <div id="categories">
                     </div>
@@ -61,6 +76,7 @@
                     </div>
                 </div>
 
+                <div id="no-product-found">No one product found with these Filters</div>
                 <div id="productsList"></div>
 
                 <div id="load-more">
